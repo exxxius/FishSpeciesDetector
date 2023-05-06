@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FishSpeciesDetector</string>
+    <string name="capture_or_select_image">Capture or Select Image</string>
+    <string name="capture">Capture</string>
+    <string name="fullscreen_button">fullscreen button</string>
+    <string name="capture_image">Capture Image</string>
+</resources>
