@@ -8,31 +8,33 @@
 
     <com.rebirth.FishSpeciesDetector.ZoomableImageView
         android:id="@+id/zoomableImageView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="16dp"
+        android:layout_width="407dp"
+        android:layout_height="489dp"
+        android:layout_margin="2dp"
+        android:contentDescription="TODO"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toTopOf="@id/textView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="TODO" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/fullscreenButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="47dp"
+        android:layout_height="41dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/fullscreen_button"
         android:src="@android:drawable/ic_menu_view"
         app:layout_constraintBottom_toBottomOf="@id/zoomableImageView"
-        app:layout_constraintEnd_toEndOf="@id/zoomableImageView"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/fullscreen_button" />
+        app:layout_constraintEnd_toEndOf="@id/zoomableImageView" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="399dp"
+        android:layout_height="98dp"
         android:layout_margin="16dp"
+        android:layout_marginBottom="64dp"
         android:text=""
         app:layout_constraintBottom_toTopOf="@id/captureButton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,27 +44,34 @@
         android:id="@+id/captureButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/capture_image"
-        app:layout_constraintBottom_toTopOf="@id/selectButton"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/showResultButton"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/selectButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="8dp"
         android:text="Select Image"
-        app:layout_constraintBottom_toTopOf="@id/newPredictionButton"
+        app:layout_constraintBottom_toTopOf="@+id/showResultButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/showResultButton" />
 
     <Button
         android:id="@+id/showResultButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
         android:text="Show Result"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
