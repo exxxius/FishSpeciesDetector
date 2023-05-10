@@ -39,7 +39,7 @@ import java.util.Vector;
 public class YoloV5Classifier implements Classifier {
     private static final String MODEL_FILE = "best-fp16.tflite";
     private static final String LABEL_FILE = "labels.txt";
-    public static final float MINIMUM_CONFIDENCE_TF_OD_API = 0.5f; // You can set this value based on your preference
+    public static final float MINIMUM_CONFIDENCE_TF_OD_API = 0.4f; // You can set this value based on your preference
 
     private Interpreter.Options tfliteOptions;
 

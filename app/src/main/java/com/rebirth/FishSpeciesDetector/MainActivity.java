@@ -654,7 +654,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
+import android.content.res.Resources;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -664,7 +664,9 @@ public class MainActivity extends AppCompatActivity {
     private static final String PERMISSION_CAMERA = Manifest.permission.CAMERA;
 
     private Classifier detector;
-    private ZoomableImageView imageView;
+    //private ZoomableImageView imageView;
+    //private StretchableImageView imageView;
+    private CustomImageView imageView;
     private TextView textView;
     private boolean isFullScreen = false;
 
@@ -674,8 +676,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        imageView = findViewById(R.id.zoomableImageView);
+        imageView = (CustomImageView) findViewById(R.id.zoomableImageView);
         textView = findViewById(R.id.textView);
 
         if (hasPermission()) {
@@ -838,8 +839,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Add a new Paint object for drawing text
         android.graphics.Paint textPaint = new android.graphics.Paint();
-        textPaint.setColor(android.graphics.Color.WHITE);
-        textPaint.setTextSize(60f);
+        textPaint.setColor(android.graphics.Color.RED);
+        textPaint.setTextSize(40f);
 
         for (Classifier.Recognition result : recognitions) {
             android.graphics.RectF location = result.getLocation();
@@ -858,10 +859,28 @@ public class MainActivity extends AppCompatActivity {
     private static final int TAKE_PHOTO_REQUEST_CODE = 2;
     private File photoFile;
 
+    // Resize the image.
     private Bitmap resizeImage(Bitmap originalImage, int width, int height) {
         Bitmap resizedImage = Bitmap.createScaledBitmap(originalImage, width, height, false);
         return resizedImage;
     }
+
+    // Resize the image to fit the screen size and maintain the aspect ratio.
+    private Bitmap resizeMaintainAspectRatio(Bitmap originalImage, int targetWidth, int targetHeight) {
+        int originalWidth = originalImage.getWidth();
+        int originalHeight = originalImage.getHeight();
+
+        float widthRatio = (float) originalWidth / targetWidth;
+        float heightRatio = (float) originalHeight / targetHeight;
+
+        float resizeRatio = Math.min(widthRatio, heightRatio);
+
+        int newWidth = Math.round(originalWidth / resizeRatio);
+        int newHeight = Math.round(originalHeight / resizeRatio);
+
+        return Bitmap.createScaledBitmap(originalImage, newWidth, newHeight, false);
+    }
+
 
     private Bitmap correctOrientation(Bitmap bitmap, Uri uri) {
         try {
@@ -909,6 +928,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private Executor executor = Executors.newSingleThreadExecutor();
 
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -919,9 +939,13 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                         bitmap = correctOrientation(bitmap, uri);
-                        int inputSize = 640;
-                        Bitmap resizedBitmap = resizeImage(bitmap, inputSize, inputSize);
-                        executor.execute(new ProcessImageTask(resizedBitmap));
+                        int inputSize = 640; // This is the size for the model
+                        Bitmap resizedBitmapForModel = resizeImage(bitmap, inputSize, inputSize);
+                        executor.execute(new ProcessImageTask(resizedBitmapForModel));
+
+                        int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
+                        Bitmap resizedBitmapForDisplay = resizeMaintainAspectRatio(bitmap, screenWidth, screenWidth);
+                        imageView.setImageBitmap(resizedBitmapForDisplay);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -931,11 +955,45 @@ public class MainActivity extends AppCompatActivity {
                     Uri photoURI = Uri.fromFile(photoFile);
                     Bitmap bitmap = BitmapFactory.decodeFile(photoURI.getPath());
                     bitmap = correctOrientation(bitmap, photoURI);
-                    int inputSize = 640;
-                    Bitmap resizedBitmap = resizeImage(bitmap, inputSize, inputSize);
-                    executor.execute(new ProcessImageTask(resizedBitmap));
+                    int inputSize = 640; // This is the size for the model
+                    Bitmap resizedBitmapForModel = resizeImage(bitmap, inputSize, inputSize);
+                    executor.execute(new ProcessImageTask(resizedBitmapForModel));
+
+                    int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
+                    Bitmap resizedBitmapForDisplay = resizeMaintainAspectRatio(bitmap, screenWidth, screenWidth);
+                    imageView.setImageBitmap(resizedBitmapForDisplay);
                 }
             }
         }
     }
+
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (resultCode == RESULT_OK) {
+//            if (requestCode == SELECT_PHOTO_REQUEST_CODE) {
+//                if (data != null && data.getData() != null) {
+//                    Uri uri = data.getData();
+//                    try {
+//                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+//                        bitmap = correctOrientation(bitmap, uri);
+//                        int inputSize = 640;
+//                        Bitmap resizedBitmap = resizeImage(bitmap, inputSize, inputSize);
+//                        executor.execute(new ProcessImageTask(resizedBitmap));
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            } else if (requestCode == TAKE_PHOTO_REQUEST_CODE) {
+//                if (photoFile != null) {
+//                    Uri photoURI = Uri.fromFile(photoFile);
+//                    Bitmap bitmap = BitmapFactory.decodeFile(photoURI.getPath());
+//                    bitmap = correctOrientation(bitmap, photoURI);
+//                    int inputSize = 640;
+//                    Bitmap resizedBitmap = resizeImage(bitmap, inputSize, inputSize);
+//                    executor.execute(new ProcessImageTask(resizedBitmap));
+//                }
+//            }
+//        }
+//    }
 }
