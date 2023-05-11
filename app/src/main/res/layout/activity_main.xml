@@ -50,6 +50,8 @@
 
     <TextView
         android:id="@+id/textView"
+        android:scrollbars = "vertical"
+        android:fadeScrollbars="false"
         android:layout_width="399dp"
         android:layout_height="98dp"
         android:layout_margin="16dp"

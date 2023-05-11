@@ -1269,6 +1269,10 @@ import android.widget.RelativeLayout; // Or LinearLayout or whatever layout you 
 import android.widget.RelativeLayout.LayoutParams; // Be sure to import the correct LayoutParams class
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.DialogInterface;
+import androidx.appcompat.app.AlertDialog;
+import android.text.method.ScrollingMovementMethod;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
@@ -1328,14 +1332,28 @@ public class MainActivity extends AppCompatActivity {
         showResultButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 StringBuilder sb = new StringBuilder();
+                sb.append("A.I thinks that the species of fish is: \n");
+                int i = 1;
                 for (Classifier.Recognition result : results) {
-                    sb.append(result.getTitle())
+                    sb.append("Fish " + i + ": ")
+                            .append(result.getTitle())
                             .append(" - ")
                             .append(String.format("%.2f", result.getConfidence() * 100))
                             .append("%")
                             .append("\n");
+                    i++;
                 }
-                Toast.makeText(MainActivity.this, sb.toString(), Toast.LENGTH_LONG).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("Results");
+                builder.setMessage(sb.toString());
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User clicked OK button
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
 
@@ -1499,6 +1517,7 @@ public class MainActivity extends AppCompatActivity {
                     i++;
                 }
                 textView.setText(sb.toString());
+                textView.setMovementMethod(new ScrollingMovementMethod());
             });
         }
     }

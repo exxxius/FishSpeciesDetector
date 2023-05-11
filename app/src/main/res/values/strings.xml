@@ -4,4 +4,5 @@
     <string name="capture">Capture</string>
     <string name="fullscreen_button">fullscreen button</string>
     <string name="capture_image">Capture Image</string>
+    <string name="splash_screen">Splash Screen</string>
 </resources>
