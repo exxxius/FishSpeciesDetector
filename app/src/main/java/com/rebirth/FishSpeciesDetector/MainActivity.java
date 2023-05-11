@@ -1282,7 +1282,7 @@ public class MainActivity extends AppCompatActivity {
     private Classifier detector;
     private CustomImageView imageView;
     private TextView textView;
-    private boolean isFullScreen = false;
+    //private boolean isFullScreen = false;
 
     //for resizing the bounding boxes according to original image aspect ratio
     private float scaleFactorX;
@@ -1356,6 +1356,7 @@ public class MainActivity extends AppCompatActivity {
                 dialog.show();
             }
         });
+    }
 
 //        // Touch listener for the image view Reset Position
 //        imageView.setOnTouchListener(new View.OnTouchListener() {
@@ -1389,40 +1390,40 @@ public class MainActivity extends AppCompatActivity {
 //        });
 
 
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                toggleFullScreen();
-            }
-        });
-    }
+        //imageView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                toggleFullScreen();
+//            }
+//        });
+//    }
 
-
-    private void toggleFullScreen() {
-        if (isFullScreen) {
-            showSystemUI();
-        } else {
-            hideSystemUI();
-        }
-        isFullScreen = !isFullScreen;
-    }
-
-    private void hideSystemUI() {
-        getWindow().getDecorView().setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_FULLSCREEN);
-    }
-
-    private void showSystemUI() {
-        getWindow().getDecorView().setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-    }
+//
+//    private void toggleFullScreen() {
+//        if (isFullScreen) {
+//            showSystemUI();
+//        } else {
+//            hideSystemUI();
+//        }
+//        isFullScreen = !isFullScreen;
+//    }
+//
+//    private void hideSystemUI() {
+//        getWindow().getDecorView().setSystemUiVisibility(
+//                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+//                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+//                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+//                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+//                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+//                        | View.SYSTEM_UI_FLAG_FULLSCREEN);
+//    }
+//
+//    private void showSystemUI() {
+//        getWindow().getDecorView().setSystemUiVisibility(
+//                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+//                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+//                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+//    }
 
     private File createImageFile() throws IOException {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -1461,7 +1462,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // Add other methods to handle camera and image processing, and use the `detector` to recognize objects in the images.
+    //methods to handle camera and image processing, and use the `detector` to recognize objects in the images.
     private List<Classifier.Recognition> results;
 
     private void processImage(Bitmap bitmap, Bitmap originalBitmap) {
@@ -1608,6 +1609,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    // Process the image using the detector in a background thread.
+    // This is to avoid blocking the UI thread while the image is being processed.
     private class ProcessImageTask implements Runnable {
         private final Bitmap bitmap;
         private final Bitmap originalBitmap;
@@ -1626,6 +1629,7 @@ public class MainActivity extends AppCompatActivity {
     private Executor executor = Executors.newSingleThreadExecutor();
 
 
+    // Handle the result of the image selection or photo taking.
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
