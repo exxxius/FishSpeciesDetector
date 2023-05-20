@@ -4,4 +4,7 @@
     <string name="capture">Capture</string>
     <string name="fullscreen_button">fullscreen button</string>
     <string name="capture_image">Capture Image</string>
+    <string name="new_prediction">New Prediction</string>
+    <string name="show_result">Show Result</string>
+    <string name="select_image">Select Image</string>
 </resources>
