@@ -15,19 +15,19 @@ FishSpeciesDetector is an Android application designed to detect and identify fi
 ## Screenshots
 
 ### App Icon
-![App Icon](screenshots/Screenshot_20230519-091019_FishSpeciesDetector.jpg)
+![App Icon](tree/main/screenshots/Screenshot_20230519-091019_FishSpeciesDetector.jpg)
 
 ### Main Screen
-![Main Screen](screenshots/Screenshot_20230519-091026_FishSpeciesDetector.jpg)
+![Main Screen](tree/main/screenshots/Screenshot_20230519-091026_FishSpeciesDetector.jpg)
 
 ### Loading Screen
-![Loading Screen](screenshots/Screenshot_20230519-091042_FishSpeciesDetector.jpg)
+![Loading Screen](tree/main/screenshots/Screenshot_20230519-091042_FishSpeciesDetector.jpg)
 
 ### Results Screen
-![Results Screen](screenshots/Screenshot_20230519-091052_FishSpeciesDetector.jpg)
+![Results Screen](tree/main/screenshots/Screenshot_20230519-091052_FishSpeciesDetector.jpg)
 
 ### Results Detail Screen
-![Results Detail Screen](screenshots/Screenshot_20230519-091101_FishSpeciesDetector.jpg)
+![Results Detail Screen](tree/main/screenshots/Screenshot_20230519-091101_FishSpeciesDetector.jpg)
 
 ## Installation
 
