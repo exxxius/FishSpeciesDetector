@@ -12,19 +12,29 @@ FishSpeciesDetector is an Android application designed to detect and identify fi
 ## Screenshots
 
 ### App Icon
-<img src="https://github.com/exxxius/FishSpeciesDetector/raw/main/screenshots/Screenshot_20230519-091019_FishSpeciesDetector.jpg" width="50%" alt="App Icon">
+<p align="center">
+  <img src="https://github.com/exxxius/FishSpeciesDetector/raw/main/screenshots/Screenshot_20230519-091019_FishSpeciesDetector.jpg" width="50%" alt="App Icon">
+</p>
 
 ### Main Screen
-<img src="https://github.com/exxxius/FishSpeciesDetector/raw/main/screenshots/Screenshot_20230519-091026_FishSpeciesDetector.jpg" width="50%" alt="Main Screen">
+<p align="center">
+  <img src="https://github.com/exxxius/FishSpeciesDetector/raw/main/screenshots/Screenshot_20230519-091026_FishSpeciesDetector.jpg" width="50%" alt="Main Screen">
+</p>
 
 ### Loading Screen
-<img src="https://github.com/exxxius/FishSpeciesDetector/raw/main/screenshots/Screenshot_20230519-091042_FishSpeciesDetector.jpg" width="50%" alt="Loading Screen">
+<p align="center">
+  <img src="https://github.com/exxxius/FishSpeciesDetector/raw/main/screenshots/Screenshot_20230519-091042_FishSpeciesDetector.jpg" width="50%" alt="Loading Screen">
+</p>
 
 ### Results Screen
-<img src="https://github.com/exxxius/FishSpeciesDetector/raw/main/screenshots/Screenshot_20230519-091052_FishSpeciesDetector.jpg" width="50%" alt="Results Screen">
+<p align="center">
+  <img src="https://github.com/exxxius/FishSpeciesDetector/raw/main/screenshots/Screenshot_20230519-091052_FishSpeciesDetector.jpg" width="50%" alt="Results Screen">
+</p>
 
 ### Results Detail Screen
-<img src="https://github.com/exxxius/FishSpeciesDetector/raw/main/screenshots/Screenshot_20230519-091101_FishSpeciesDetector.jpg" width="50%" alt="Results Detail Screen">
+<p align="center">
+  <img src="https://github.com/exxxius/FishSpeciesDetector/raw/main/screenshots/Screenshot_20230519-091101_FishSpeciesDetector.jpg" width="50%" alt="Results Detail Screen">
+</p>
 
 ## Installation
 
