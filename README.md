@@ -1,6 +1,3 @@
-Based on the provided screenshots and the repository details, here is a README.md file template for your Fish Species Detector Android app:
-
-```markdown
 # FishSpeciesDetector
 
 FishSpeciesDetector is an Android application designed to detect and identify fish species using AI. This app allows users to capture or select an image of a fish and then uses a machine learning model to identify the species.
@@ -15,19 +12,19 @@ FishSpeciesDetector is an Android application designed to detect and identify fi
 ## Screenshots
 
 ### App Icon
-![App Icon](screenshots/Screenshot_20230519-091019_FishSpeciesDetector.jpg)
+![App Icon](https://github.com/exxxius/FishSpeciesDetector/raw/main/screenshots/Screenshot_20230519-091019_FishSpeciesDetector.jpg)
 
 ### Main Screen
-![Main Screen](screenshots/Screenshot_20230519-091026_FishSpeciesDetector.jpg)
+![Main Screen](https://github.com/exxxius/FishSpeciesDetector/raw/main/screenshots/Screenshot_20230519-091026_FishSpeciesDetector.jpg)
 
 ### Loading Screen
-![Loading Screen](screenshots/Screenshot_20230519-091042_FishSpeciesDetector.jpg)
+![Loading Screen](https://github.com/exxxius/FishSpeciesDetector/raw/main/screenshots/Screenshot_20230519-091042_FishSpeciesDetector.jpg)
 
 ### Results Screen
-![Results Screen](screenshots/Screenshot_20230519-091052_FishSpeciesDetector.jpg)
+![Results Screen](https://github.com/exxxius/FishSpeciesDetector/raw/main/screenshots/Screenshot_20230519-091052_FishSpeciesDetector.jpg)
 
 ### Results Detail Screen
-![Results Detail Screen](screenshots/Screenshot_20230519-091101_FishSpeciesDetector.jpg)
+![Results Detail Screen](https://github.com/exxxius/FishSpeciesDetector/raw/main/screenshots/Screenshot_20230519-091101_FishSpeciesDetector.jpg)
 
 ## Installation
 
