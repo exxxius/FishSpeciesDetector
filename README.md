@@ -1,15 +1,36 @@
 # FishSpeciesDetector
 
-FishSpeciesDetector is an Android application designed to detect and identify fish species using AI. This app allows users to capture or select an image of a fish and then uses a machine learning model to identify the species.
+FishSpeciesDetector is an Android application that uses a **custom-trained AI model** to detect and classify **fish species**, with a focus on Pacific Northwest **salmonids** (Chinook, Coho, Sockeye, Pink, Chum, Steelhead, Trout, and Kokanee).  
+This project was part of my research and applied AI work to bring **computer vision into environmental conservation, fisheries management, and outdoor recreation**.
 
-## Features
+---
 
-- Capture image of fish using the device's camera.
-- Select image of fish from the device's gallery.
-- Use AI to detect and identify fish species.
-- Display results with confidence percentages for each identified fish.
+## 🌍 Motivation & Impact
 
-## Screenshots
+Fishing is an important part of culture, food supply, and recreation. Correctly identifying fish species is critical for:
+
+- **Conservation**: Many species have strict regulations (size limits, catch-and-release rules, endangered listings). Misidentification can harm populations.  
+- **Recreational Anglers**: Ensures compliance with fishing laws and promotes sustainable practices.  
+- **Fisheries Scientists**: Helps monitor population health and migrations.  
+- **Education**: Teaches children, students, and citizen scientists about biodiversity.  
+
+By deploying an **offline AI-powered app** that works directly on a smartphone, this project makes **real-time fish identification accessible to anyone in the field** — even without internet access.  
+
+---
+
+## 📱 Features
+
+- **Capture Images**: Take a photo of a fish using the phone’s camera.  
+- **Select Images**: Choose a fish photo from the device’s gallery.  
+- **AI-powered Detection**: Uses a YOLOv5 → TensorFlow Lite model to classify species.  
+- **Confidence Scores**: Displays prediction probabilities for transparency.  
+- **Detailed Results**: Bounding box + species information.  
+- **Offline Mode**: Works anywhere, even without network connectivity.  
+- **Lightweight UI**: Simple, practical design for outdoor use.  
+
+---
+
+## 🖼️ Screenshots
 
 ### App Icon
 <p align="center">
@@ -36,46 +57,76 @@ FishSpeciesDetector is an Android application designed to detect and identify fi
   <img src="https://github.com/exxxius/FishSpeciesDetector/raw/main/screenshots/Screenshot_20230519-091101_FishSpeciesDetector.jpg" width="50%" alt="Results Detail Screen">
 </p>
 
-## Installation
+---
 
-To get a local copy up and running follow these simple steps:
+## ⚙️ Technical Overview
 
-### Prerequisites
+- **Platform**: Android (Java/Kotlin).  
+- **Model**: YOLOv5 distilled to **TensorFlow Lite**.  
+- **Dataset**: Custom-built **Salmonidae dataset**, annotated with bounding boxes & species labels.  
+- **Pipeline**: Image → Preprocessing → TFLite model → Classification + confidence → UI display.  
+- **Performance**: Optimized to run under ~100ms on mid-range Android devices.  
+- **Model Size**: 165 MB after quantization.
 
-- Android Studio installed on your machine.
-- A device or emulator running Android.
+For dataset creation, training pipeline, and model distillation details, see the companion repo:  
+👉 [YOLOv5-TFLite-FishDetector-Model-Training](https://github.com/exxxius/YOLOv5-TFLite-FishDetector-Model-Training)
 
-### Installation
+---
 
-1. Clone the repo
+## 🚀 Installation Instructions
+
+### Requirements
+- Android Studio (latest version).  
+- Android SDK 33+ installed.  
+- A physical Android device or emulator running Android 8.0 (API 26) or newer.  
+
+### Steps
+1. Clone the repository:
    ```sh
    git clone https://github.com/exxxius/FishSpeciesDetector.git
    ```
-2. Open the project in Android Studio.
-3. Build and run the project on your device or emulator.
+2. Open the project in **Android Studio**.  
+3. Let Gradle sync and download all required dependencies.  
+4. Connect an Android device (or start an emulator).  
+5. Build & Run the app.  
+6. The bundled TensorFlow Lite model (`model.tflite`) is already included in `/app/src/main/assets/`.  
 
-## Usage
+---
 
-1. Open the app on your Android device.
-2. Use the `Capture Image` button to take a picture of a fish or the `Select Image` button to choose a photo from your gallery.
-3. Press the `Show Result` button to see the AI's identification of the fish species along with confidence percentages.
+## ▶️ Usage Instructions
 
-## Contributing
+1. Launch the **FishSpeciesDetector** app.  
+2. From the **Main Menu**:  
+   - Tap **Capture Image** to take a new photo.  
+   - Tap **Select Image** to choose one from gallery.  
+3. Tap **Show Result** to run AI detection.  
+4. Review the results:  
+   - The detected species name.  
+   - A bounding box around the fish.  
+   - Confidence percentage scores.  
+5. Open **Detailed Results** to see additional species information.  
 
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+---
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+## 🧑‍💻 Skills Demonstrated
 
-## License
+- Computer Vision (YOLOv5, TensorFlow, TensorFlow Lite).  
+- Dataset curation & annotation (Salmonidae species).  
+- Model optimization for mobile edge devices (quantization, pruning).  
+- Android development (camera integration, storage access, UI).  
+- End-to-end product design: **from dataset → training → mobile deployment**.  
 
-Distributed under the MIT License. See `LICENSE` for more information.
+---
 
-## Contact
+## 📜 License
 
-Mehdi Rahimi - [mehdi.rahimi1984@gmail.com](mailto:mehdi.rahimi1984@gmail.com)
+Distributed under the MIT License. See `LICENSE` for details.
 
-Project Link: [https://github.com/exxxius/FishSpeciesDetector](https://github.com/exxxius/FishSpeciesDetector)
+---
+
+## 📬 Contact
+
+For professional inquiries, please reach out via my GitHub profile:  
+[https://github.com/exxxius](https://github.com/exxxius)  
+
+---
