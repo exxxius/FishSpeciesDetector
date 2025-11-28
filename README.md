@@ -120,13 +120,12 @@ For dataset creation, training pipeline, and model distillation details, see the
 
 ## 📜 License
 
-Distributed under the MIT License. See `LICENSE` for details.
-
+Copyright © 2023 Mehdi Rahimi and Neumad. All rights reserved.
 ---
 
 ## 📬 Contact
 
 For professional inquiries, please reach out via my GitHub profile:  
-[https://github.com/exxxius](https://github.com/exxxius)  
+[https://github.com/mrcodewaves](https://github.com/mrcodewaves)  
 
 ---
